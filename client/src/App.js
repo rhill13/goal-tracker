@@ -13,15 +13,15 @@ class App extends Component {
   componentDidMount() {
     fetch("http://localhost:5000/goals")
       .then((response) => response.json())
-      .then((data) => this.setState({ goals: data }));
+      .then((data) => this.setState({ goals: data.goals }));
   }
 
   render() {
     return (
       <div>
         <h1>Goal Tracker</h1>
-        {Object.keys(this.state.goals).map((g) => (
-          <p>{g}</p>
+        {this.state.goals.map((g) => (
+          <p>{g.title}</p>
         ))}
       </div>
     );
