@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import Goal from "./Goal/goal-component";
+
 import "./App.css";
 
 class App extends Component {
@@ -21,7 +23,7 @@ class App extends Component {
       <div>
         <h1>Goal Tracker</h1>
         {this.state.goals.map((g) => (
-          <p>{g.title}</p>
+          <Goal title={g.title} text={g.text} />
         ))}
       </div>
     );
