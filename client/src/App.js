@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+import Navbar from "./Navbar/navbar-component";
 import Goal from "./Goal/goal-component";
 
 import "./App.css";
@@ -21,10 +22,12 @@ class App extends Component {
   render() {
     return (
       <div>
-        <h1>Goal Tracker</h1>
-        {this.state.goals.map((g) => (
-          <Goal title={g.title} text={g.text} />
-        ))}
+        <Navbar />
+        <div>
+          {this.state.goals.map((g) => (
+            <Goal title={g.title} text={g.text} />
+          ))}
+        </div>
       </div>
     );
   }
