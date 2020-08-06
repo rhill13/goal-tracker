@@ -1,0 +1,23 @@
+.goal {
+  width: 35%;
+  margin: 2rem auto;
+  padding: 0;
+  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow: 2px 3px 3px #a8a8a8;
+}
+
+.goal__title {
+  border-top-left-radius: 9px;
+  border-top-right-radius: 9px;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 1rem;
+  background-color: #c0c0c0;
+  background-clip: border-box;
+}
+
+.goal__text {
+  padding: 1rem;
+  margin: 0;
+}
