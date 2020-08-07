@@ -10,6 +10,7 @@ class App extends Component {
     super(props);
     this.state = {
       goals: [],
+      newGoalShowing: false,
     };
   }
 
@@ -20,6 +21,15 @@ class App extends Component {
   }
 
   render() {
+    if (this.state.newGoalShowing) {
+      return (
+        <div>
+          <Navbar />
+          <h2>New Goal Form</h2>
+        </div>
+      );
+    }
+
     return (
       <div>
         <Navbar />
