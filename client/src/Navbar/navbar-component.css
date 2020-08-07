@@ -13,6 +13,11 @@
   float: left;
 }
 
+.navbar h3 {
+  padding-left: 2rem;
+  color: #0073d1;
+}
+
 .navbar li p {
   height: 100%;
   display: flex;
@@ -24,7 +29,7 @@
 }
 
 .navbar li p:hover {
-  background-color: #078fff;
+  background-color: #0073d1;
   color: white;
   cursor: pointer;
 }
