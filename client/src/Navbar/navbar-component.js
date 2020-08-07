@@ -4,7 +4,7 @@ import "./navbar-component.css";
 
 const Navbar = (props) => {
   const newGoalClickHandler = () => {
-    console.log("New Goal Button Clicked");
+    return props.newGoalClicked();
   };
 
   return (
@@ -13,7 +13,7 @@ const Navbar = (props) => {
         <h3>Goal Tracker</h3>
       </li>
       <li className="navbar__li" onClick={newGoalClickHandler}>
-        <p>New Goal</p>
+        <p>{props.buttonText}</p>
       </li>
     </ul>
   );
