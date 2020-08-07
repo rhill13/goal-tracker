@@ -26,6 +26,12 @@ class App extends Component {
     this.setState({ newGoalShowing: !showing });
   };
 
+  onNewGoalSubmit = () => {
+    this.setState({ newGoalShowing: false }, () => {
+      this.componentDidMount();
+    });
+  };
+
   render() {
     if (this.state.newGoalShowing) {
       return (
@@ -34,7 +40,7 @@ class App extends Component {
             newGoalClicked={() => this.newGoalClickedHandler()}
             buttonText="Exit"
           />
-          <NewGoal />
+          <NewGoal onNewGoalSubmit={() => this.onNewGoalSubmit()} />
         </div>
       );
     }
