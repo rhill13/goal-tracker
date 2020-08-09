@@ -7,17 +7,44 @@
   box-shadow: 2px 3px 3px #a8a8a8;
 }
 
-.goal__title {
+.title-area {
+  display: flex;
+  justify-content: space-between;
   border-top-left-radius: 9px;
   border-top-right-radius: 9px;
   margin-top: 0;
   margin-bottom: 0;
-  padding: 1rem;
+  padding: 0rem;
   background-color: #c0c0c0;
   background-clip: border-box;
+  align-items: center;
+}
+
+.goal__title {
+  padding-left: 1rem;
 }
 
 .goal__text {
   padding: 1rem;
   margin: 0;
+}
+
+.Edit {
+  margin-right: 1rem;
+}
+
+.Edit h5 {
+  display: flex;
+  width: 4rem;
+  height: 2rem;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  border-radius: 3px;
+}
+
+.Edit h5:hover {
+  background-color: #0073d1;
+  color: white;
+  cursor: pointer;
 }
