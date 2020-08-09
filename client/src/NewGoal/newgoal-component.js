@@ -39,7 +39,7 @@ class NewGoal extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="newGoalForm">
         <label htmlFor="title">New Goal Title:</label>
         <input
           name="title"
