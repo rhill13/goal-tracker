@@ -1,0 +1,21 @@
+.newGoalForm {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: auto;
+  padding-top: 1rem;
+}
+
+.newGoalForm label {
+  margin-top: 1rem;
+}
+
+.newGoalForm input {
+  margin-top: 0.5rem;
+  width: 75%;
+}
+
+.newGoalForm button {
+  margin-top: 1rem;
+  width: 6rem;
+}
