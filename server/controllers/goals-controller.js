@@ -21,3 +21,14 @@ exports.postGoal = (req, res, next) => {
   goal.save();
   res.json({ status: "Goal Saved..." });
 };
+
+exports.deleteGoalById = (req, res, next) => {
+  const goalId = req.params.id;
+  return Goal.findOneAndRemove({ _id: goalId }).then((err) => {
+    if (!err) {
+      return res.json({ status: `Deleted: ${goalId}` });
+    }
+    console.log(err);
+    return res.json({ status: "Failed to delete..." });
+  });
+};
