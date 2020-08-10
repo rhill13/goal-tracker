@@ -17,11 +17,16 @@ const Goal = (props) => {
       });
   };
 
+  const editGoalClickHandler = () => {
+    console.log(`Edit goal: ${props.id}`);
+  };
+
   return (
     <div className="goal">
       <div className="title-area">
         <h3 className="goal__title">{props.title}</h3>
         <div className="Edit">
+          <h5 onClick={() => editGoalClickHandler()}>Edit</h5>
           <h5 onClick={() => deleteGoalClickHandler()}>Delete</h5>
         </div>
       </div>
