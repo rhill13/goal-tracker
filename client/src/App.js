@@ -53,7 +53,7 @@ class App extends Component {
         />
         <div>
           {this.state.goals.map((g) => (
-            <Goal title={g.title} text={g.text} />
+            <Goal title={g.title} text={g.text} id={g._id} />
           ))}
         </div>
       </div>

@@ -3,7 +3,7 @@ import "./goal-component.css";
 
 const Goal = (props) => {
   const deleteGoalClickHandler = () => {
-    console.log(`Delete button clicked: ${props.title}`);
+    console.log(`Delete goal: ${props.id}`);
   };
 
   return (
