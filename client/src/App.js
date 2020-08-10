@@ -32,6 +32,10 @@ class App extends Component {
     });
   };
 
+  onGoalDelete = () => {
+    this.componentDidMount();
+  };
+
   render() {
     if (this.state.newGoalShowing) {
       return (
@@ -53,7 +57,12 @@ class App extends Component {
         />
         <div>
           {this.state.goals.map((g) => (
-            <Goal title={g.title} text={g.text} id={g._id} />
+            <Goal
+              title={g.title}
+              text={g.text}
+              id={g._id}
+              onGoalDelete={() => this.onGoalDelete()}
+            />
           ))}
         </div>
       </div>

@@ -1,9 +1,20 @@
 import React from "react";
 import "./goal-component.css";
+import axios from "axios";
 
 const Goal = (props) => {
   const deleteGoalClickHandler = () => {
-    console.log(`Delete goal: ${props.id}`);
+    axios
+      .delete(`http://localhost:5000/delete-goal/${props.id}`)
+      .then(() => {
+        console.log(`Deleted: ${props.id}`);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        props.onGoalDelete();
+      });
   };
 
   return (
