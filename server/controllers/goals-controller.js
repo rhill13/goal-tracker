@@ -32,3 +32,15 @@ exports.deleteGoalById = (req, res, next) => {
     return res.json({ status: "Failed to delete..." });
   });
 };
+
+exports.editGoal = (req, res, next) => {
+  // NEED TO GET req.body HERE
+  const goalId = req.params.id;
+  return Goal.findOne({ _id: goalId }).then((goal, err) => {
+    if (!err) {
+      // UPDATE GOAL HERE
+      return res.json(goal);
+    }
+    return res.json({ status: err });
+  });
+};
