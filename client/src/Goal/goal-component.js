@@ -18,7 +18,7 @@ const Goal = (props) => {
   };
 
   const editGoalClickHandler = () => {
-    console.log(`Edit goal: ${props.id}`);
+    props.editGoalClicked();
   };
 
   return (
