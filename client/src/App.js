@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import Navbar from "./Navbar/navbar-component";
 import Goal from "./Goal/goal-component";
 import NewGoal from "./NewGoal/newgoal-component";
+import EditGoal from "./EditGoal/editgoal-component";
 
 import "./App.css";
 
@@ -12,6 +13,10 @@ class App extends Component {
     this.state = {
       goals: [],
       newGoalShowing: false,
+      editGoalShowing: false,
+      editGoalId: "",
+      editGoalTitle: "",
+      editGoalText: "",
     };
   }
 
@@ -26,6 +31,16 @@ class App extends Component {
     this.setState({ newGoalShowing: !showing });
   };
 
+  editGoalClickedHandler = (id, title, text) => {
+    const showing = this.state.editGoalShowing;
+    this.setState({
+      editGoalId: id,
+      editGoalTitle: title,
+      editGoalText: text,
+      editGoalShowing: !showing,
+    });
+  };
+
   onNewGoalSubmit = () => {
     this.setState({ newGoalShowing: false }, () => {
       this.componentDidMount();
@@ -34,6 +49,20 @@ class App extends Component {
 
   onGoalDelete = () => {
     this.componentDidMount();
+  };
+
+  onGoalEdit = () => {
+    this.setState(
+      {
+        editGoalShowing: false,
+        editGoalId: "",
+        editGoalTitle: "",
+        editGoalText: "",
+      },
+      () => {
+        this.componentDidMount();
+      }
+    );
   };
 
   render() {
@@ -45,6 +74,21 @@ class App extends Component {
             buttonText="Exit"
           />
           <NewGoal onNewGoalSubmit={() => this.onNewGoalSubmit()} />
+        </div>
+      );
+    } else if (this.state.editGoalShowing) {
+      return (
+        <div>
+          <Navbar
+            newGoalClicked={() => this.editGoalClickedHandler()}
+            buttonText="Exit"
+          />
+          <EditGoal
+            id={this.state.editGoalId}
+            title={this.state.editGoalTitle}
+            text={this.state.editGoalText}
+            onGoalEdit={() => this.onGoalEdit()}
+          />
         </div>
       );
     }
@@ -62,6 +106,9 @@ class App extends Component {
               text={g.text}
               id={g._id}
               onGoalDelete={() => this.onGoalDelete()}
+              editGoalClicked={() =>
+                this.editGoalClickedHandler(g._id, g.title, g.text)
+              }
             />
           ))}
         </div>
