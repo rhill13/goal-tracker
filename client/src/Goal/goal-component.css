@@ -37,11 +37,13 @@
 
 .Edit h5 {
   display: flex;
-  width: 4rem;
+  width: 2rem;
   height: 2rem;
   align-items: center;
   justify-content: center;
   margin: 0;
+  margin-right: 0.5rem;
+  padding-left: 0.1rem;
   border-radius: 3px;
 }
 
