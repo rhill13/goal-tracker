@@ -1,6 +1,8 @@
 import React from "react";
 import axios from "axios";
 
+import "./editgoal-component.css";
+
 class EditGoal extends React.Component {
   constructor(props) {
     super(props);
@@ -49,7 +51,7 @@ class EditGoal extends React.Component {
           value={this.state.text}
           onChange={this.onTextChangedHandler.bind(this)}
         />
-        <button onClick={() => this.onButtonClicked()}>Create</button>
+        <button onClick={() => this.onButtonClicked()}>Submit Changes</button>
       </div>
     );
   }
