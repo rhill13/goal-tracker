@@ -14,9 +14,11 @@ class App extends Component {
       goals: [],
       newGoalShowing: false,
       editGoalShowing: false,
+      editGoalMode: false,
       editGoalId: "",
       editGoalTitle: "",
       editGoalText: "",
+      toggleActive: false,
     };
   }
 
@@ -33,16 +35,20 @@ class App extends Component {
 
   editGoalClickedHandler = (id, title, text) => {
     const showing = this.state.editGoalShowing;
-    this.setState({
-      editGoalId: id,
-      editGoalTitle: title,
-      editGoalText: text,
-      editGoalShowing: !showing,
-    });
+    this.setState(
+      {
+        editGoalId: id,
+        editGoalTitle: title,
+        editGoalText: text,
+        editGoalShowing: !showing,
+        editGoalMode: false,
+      },
+      () => this.componentDidMount()
+    );
   };
 
   onNewGoalSubmit = () => {
-    this.setState({ newGoalShowing: false }, () => {
+    this.setState({ newGoalShowing: false, editGoalMode: false }, () => {
       this.componentDidMount();
     });
   };
@@ -65,12 +71,19 @@ class App extends Component {
     );
   };
 
+  editModeHandler = () => {
+    const mode = this.state.editGoalMode;
+    const toggle = this.state.toggleActive;
+    this.setState({ editGoalMode: !mode }, () => this.componentDidMount());
+  };
+
   render() {
     if (this.state.newGoalShowing) {
       return (
         <div>
           <Navbar
             newGoalClicked={() => this.newGoalClickedHandler()}
+            editActive={false}
             buttonText="Exit"
           />
           <NewGoal onNewGoalSubmit={() => this.onNewGoalSubmit()} />
@@ -81,6 +94,8 @@ class App extends Component {
         <div>
           <Navbar
             newGoalClicked={() => this.editGoalClickedHandler()}
+            editModeClickHandler={() => this.editModeHandler()}
+            editActive={false}
             buttonText="Exit"
           />
           <EditGoal
@@ -97,6 +112,8 @@ class App extends Component {
       <div>
         <Navbar
           newGoalClicked={() => this.newGoalClickedHandler()}
+          editModeClickHandler={() => this.editModeHandler()}
+          editActive={false}
           buttonText="New Goal"
         />
         <div>
@@ -105,6 +122,7 @@ class App extends Component {
               title={g.title}
               text={g.text}
               id={g._id}
+              editMode={this.state.editGoalMode}
               onGoalDelete={() => this.onGoalDelete()}
               editGoalClicked={() =>
                 this.editGoalClickedHandler(g._id, g.title, g.text)
